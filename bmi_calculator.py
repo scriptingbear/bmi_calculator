@@ -1,10 +1,5 @@
 # BMI Calculator that automatically detects
 # measurement system (Imperial or Metric)
-
-# Very crashable application but works sometimes.
-# For best results enter measurements immediately followed by the unit
-# E.g. "120lbs" or "1.2m"
-
 import re
 import collections
 
@@ -42,7 +37,6 @@ def get_user_input():
                 user_data.append(match.groups())
                 break
         if not match:
-            print("Invalid data. Application terminated.")
             return
     return user_data
 
@@ -94,6 +88,10 @@ def get_metric_values(user_data):
 def calc_bmi():
     print("Welcome to the BMI Calculator Application!")
     user_data = get_user_input()
+    if not user_data:
+        print("Invalid input(s). Application terminated.")
+        return
+    
     metric_values = get_metric_values(user_data)
     bmi = metric_values.weight / metric_values.height ** 2
     print(f"metric_values.weight: {metric_values.weight}, metric_values.height: {metric_values.height}")
@@ -102,5 +100,6 @@ def calc_bmi():
     
     
     
-
+    
 calc_bmi()    
+    
