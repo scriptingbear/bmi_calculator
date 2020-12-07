@@ -59,7 +59,7 @@ def get_metric_values(user_data):
     height = user_data[1][0]
     if "ft" in height and "in" in height:
         # Split on spaces. ft value will be in first element
-        # in value will be in last elememnt
+        # in value will be in last element
         height_values = height.split(" ")
         feet = height_values[0]
         inches = height_values[-1]
